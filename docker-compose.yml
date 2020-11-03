@@ -1,0 +1,46 @@
+version: '3.6'
+services:
+    db_postgres:
+        image: postgres:11.0
+        env_file:
+            - .env
+        ports: 
+            - "5432:5432"
+        volumes:
+            - ./database_data:/var/lib/postgresql/data
+        environment: 
+            - POSTGRES_DB=${POSTGRES_DB}
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - POSTGRES_HOST_AUTH_METHOD=${POSTGRES_AUTH_METHOD}
+        network_mode: bridge
+
+    api-elixir:
+        depends_on:
+            - "db_postgres"
+        build: ./theme_01
+        ports:
+            - "4000:4000"
+        env_file:
+            - .env
+        links:
+            - db_postgres
+        environment: 
+            - DATABASE_HOST=${DB_HOST}
+            - DATABASE_USER=${POSTGRES_USER}
+            - DATABASE_PASSWORD=${POSTGRES_PASSWORD}
+            - DATABASE_DB=${POSTGRES_DB}
+        volumes:
+            - ./api-elixir-volume/:/usr/src/app_api
+        network_mode: bridge
+
+    vue-front:
+        build: ./theme_02
+        ports: 
+            - "8080:80"
+        depends_on: 
+            - api-elixir
+        volumes:
+            - ./vue-front-volume/:/usr/src/app_front
+
+#psql --host=database --username=postgres --dbname=theme_01_dev
