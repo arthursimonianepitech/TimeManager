@@ -1,0 +1,123 @@
+GET http://localhost:4000/api/workingtimes/1
+
+################################# __USERS__ #################################
+
+###
+
+POST http://localhost:4000/api/users
+content-type: application/json
+
+{
+    "user": {
+        "email": "arthur@armenie.ar",
+        "username": "Arthur"
+    }
+}
+
+###
+
+POST http://localhost:4000/api/users
+content-type: application/json
+
+{
+    "user": {
+        "email": "nekfeu@1995.entourage",
+        "username": "Nekfeu"
+    }
+}
+
+###
+
+POST http://localhost:4000/api/users
+content-type: application/json
+
+{
+    "user": {
+        "email": "jul@marseille.bo",
+        "username": "JUL"
+    }
+}
+
+################################# __WORKING_TIMES_ID_1__ #################################
+
+POST http://localhost:4000/api/workingtimes/1
+content-type: application/json
+
+{
+    "working_times": {
+        "start": "2000-01-01 10:00:00",
+        "end": "2000-01-01 11:00:00"
+    }
+}
+
+###
+
+POST http://localhost:4000/api/workingtimes/1
+content-type: application/json
+
+{
+    "working_times": {
+        "start": "2000-01-01 11:00:00",
+        "end": "2000-01-01 12:00:00"
+    }
+}
+
+###
+
+POST http://localhost:4000/api/workingtimes/1
+content-type: application/json
+
+{
+    "working_times": {
+        "start": "2000-01-01 12:00:00",
+        "end": "2000-01-01 13:00:00"
+    }
+}
+
+###
+
+POST http://localhost:4000/api/workingtimes/1
+content-type: application/json
+
+{
+    "working_times": {
+        "start": "2000-01-01 13:00:00",
+        "end": "2000-01-01 14:00:00"
+    }
+}
+
+###
+
+POST http://localhost:4000/api/workingtimes/1
+content-type: application/json
+
+{
+    "working_times": {
+        "start": "2000-01-01 14:00:00",
+        "end": "2000-01-01 15:00:00"
+    }
+}
+
+################################# __WORKING_TIMES_ID_2__ #################################
+
+POST http://localhost:4000/api/workingtimes/2
+content-type: application/json
+
+{
+    "working_times": {
+        "start": "2077-12-10 00:00:00",
+        "end": "2077-12-10 23:59:59"
+    }
+}
+
+################################# __WORKING_TIMES_ID_3__ #################################
+
+POST http://localhost:4000/api/workingtimes/3
+content-type: application/json
+
+{
+    "working_times": {
+        "start": "1997-11-05 00:00:00",
+        "end": "2077-11-05 23:59:59"
+    }
+}
